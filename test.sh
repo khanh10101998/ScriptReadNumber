@@ -1,4 +1,3 @@
-# chmod 777 ./file
 cd e2e/flow-test/accept-task
 while IFS= read -r f1; do
   path=${f1:2}
