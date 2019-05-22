@@ -1,29 +1,26 @@
 # chmod 777 ./file
-cd e2e/flow-test/accept-task
+cd e2e/flow-test
 while IFS= read -r f1; do
-  path=${f1:2}
-file=$((awk '/FILE/ {print} ' $path) | cut -d "'" -f 2) 
+    path=${f1:2}
+    numLine=1
+    IFS=''
+    while IFS= read -r a || [ -n "$a" ];
+        do
+            # if [[ $a == *"it("* ]]; then
+                firstLine=${arrString[0]}
+            if [ "$firstLine" == "it('LINE" ]; then
+                lineNumber=$(sed 's/[:]//g'<<<"${array[0]}")
+                IFS=' ' read -r -a arrString <<< "$a"
+                numLineDelete=${arrString[1]}
 
-viLine=$((awk  '/LINE/ {for(i=1;i<=NF;i++) if(i<NF) printf $i" "; else printf $i ; print ""}' $path) | tr '//' '\n' | cut -d "'"  -f 2 ) 
+                DE=$(sed "s/$numLineDelete/$numLine/g"<<<"${a}")
+                echo $DE
+            elif [ "$firstLine" == "//" ]; then
+                echo $a
+            else
+            echo $a
+            fi
 
-line=$((awk '/LINE/ {print}' $path) | cut -d "'" -f 2) 
-
-n=1
-IFS=''
-while read a; 
-do 
-    checkIT="$(echo $a | head -c 2)"
-    
-    # if [ "$checkIT" == "it" ]; then
-    if [[ $a == *"it("* ]]; then
-        # IFS= read -r f1 $a
-        DE=$(sed 's/it.* -//'<<<"${a}")
-        #  remove the leading and trailing spaces in a string
-        DEL=$(sed 's/^ *//;s/ *$//;s/  */ /;'<<<"${DE}")
-        echo "  it('LINE" $n" - "$DEL
-    else
-        echo $a
-    fi
-    n=$((n+1))
+    numLine=$((numLine+1))
 done < $path > $path.t ; mv $path{.t,}
 done < <(find . -type f | sort -n)
