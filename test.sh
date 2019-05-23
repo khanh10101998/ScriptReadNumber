@@ -1,4 +1,4 @@
-cd e2e/view-test/filter-task-by-time
+cd e2e
 while IFS= read -r f1; do
     path=${f1:2}
     numLine=1
