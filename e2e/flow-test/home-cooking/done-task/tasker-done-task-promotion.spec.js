@@ -31,7 +31,7 @@ describe('FILE: flow-test/home-cooking/done-task/tasker-done-task-promotion.spec
     await loginWithPhoneAndPassword('0834567891', '123456');
   });
 
-  it('LINE 33 - Tasker done task with promotion', async () => { //Tasker hoàn thành công việc nấu ăn với mã khuyến mãi.
+  it('LINE 34 - Tasker done task with promotion', async () => { //Tasker hoàn thành công việc nấu ăn với mã khuyến mãi.
     await tapText('XÁC NHẬN');
     await initData('task/updateTask', [
       { Description: 'Nau an 01', Progress: 'DONE' },

@@ -21,7 +21,7 @@ describe('FILE: flow-test/sign-up/tasker-sign-up-referral-code.spec.js - Referra
     await device.reloadReactNative();
   });
 
-  it('LINE 22 - New tasker sign up an account with referral code, after first time deposit check promotion account and notification of Tasker', async () => { //Tasker đăng ký tài khoản mới với mã giới thệu, kiểm tra tài khoản và thông báo.
+  it('LINE 24 - New tasker sign up an account with referral code, after first time deposit check promotion account and notification of Tasker', async () => { //Tasker đăng ký tài khoản mới với mã giới thệu, kiểm tra tài khoản và thông báo.
     await tapId('btnRegister');
     await typeToTextField('txtYourName', 'Tasker 01');
     await typeToTextField('txtIdNumber', '01234567892');
@@ -82,7 +82,7 @@ describe('FILE: flow-test/sign-up/tasker-sign-up-referral-code.spec.js - Referra
     await waitForElement('Bạn nhận được 100,000 VND và bạn của bạn nhận 40,000 VND trong tài khoản khuyến mãi.', 1000, 'text');
   });
 
-  it('LINE 86 - Configurate taskerReferralValue promotion in settingSystem. The expired date is over', async () => { //Đặt chưong trình khuyến mãi, đã hết hạn.
+  it('LINE 85 - Configurate taskerReferralValue promotion in settingSystem. The expired date is over', async () => { //Đặt chưong trình khuyến mãi, đã hết hạn.
     await initData('user/createUser', [
       { Phone: '0834567891', Name: 'TASKER0', Type: 'TASKER', Status: 'ACTIVE' },
     ]);

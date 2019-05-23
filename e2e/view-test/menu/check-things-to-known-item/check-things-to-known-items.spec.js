@@ -72,7 +72,7 @@ const {
         await expectElementVisible('- Trước khi ra về, cám ơn khách và nhờ khách đặt lại công việc trên ứng dụng nếu lần tới có nhu cầu.','text')  
       });
 
-      it('LINE 82 - Test SPECIALIZE items', async () => { //Kiểm tra nội dung chuyên môn của những điều cần biết.
+      it('LINE 75 - Test SPECIALIZE items', async () => { //Kiểm tra nội dung chuyên môn của những điều cần biết.
         await loginWithPhoneAndPassword('0834567890', '123456');
         await tapId('btnMenu');
         await swipe('scrollViewMenu', 'up');
@@ -117,7 +117,7 @@ const {
         await expectElementVisible('IV. HÌNH THỨC THANH TOÁN','text')  
       });
 
-      it('LINE 82 - Test Support items', async () => { //Kiểm tra mục hổ trợ.
+      it('LINE 120 - Test Support items', async () => { //Kiểm tra mục hổ trợ.
         await loginWithPhoneAndPassword('0834567890', '123456');
         await tapId('btnMenu');
         await swipe('scrollViewMenu', 'up');
